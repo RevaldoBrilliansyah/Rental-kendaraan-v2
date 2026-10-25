@@ -16,7 +16,7 @@ public class KendaraanFactoryDefault implements KendaraanFactory {
             case "MOTOR" -> new Motor(platNomor, merk, tarifPerHari);
             case "MINIBUS" -> new Minibus(platNomor, merk, tarifPerHari);
             case "PREMIUM" -> new MobilPremium(platNomor, merk, tarifPerHari);
-            default -> null; // jenis tidak dikenal
+            default -> null;
         };
     }
 }
