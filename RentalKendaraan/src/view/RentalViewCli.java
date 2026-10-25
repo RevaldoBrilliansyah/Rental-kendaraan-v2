@@ -61,11 +61,10 @@ public class RentalViewCli implements RentalView {
         return input.nextLine().trim();
     }
 
-    // Mengulang sampai pengguna benar-benar memasukkan data angka
     @Override
     public long bacaAngka(String label) {
         while (true) {
-            String teks = bacaTeks(label); // L 1234 AB
+            String teks = bacaTeks(label); 
             try {
                 return Long.parseLong(teks);
             } catch (NumberFormatException e) {
