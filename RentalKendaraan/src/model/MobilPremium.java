@@ -23,8 +23,6 @@ public class MobilPremium extends Mobil {
         public int getMinimalHari() {
                 return MINIMAL_HARI;
         }
-
-        //[LSP] hasil selalu biaya > 0 sesuai kontrak induk.
         @Override
         public long hitungBiaya(int hari) {
                 return super.hitungBiaya(hari) + ASURANSI_PREMIUM;
