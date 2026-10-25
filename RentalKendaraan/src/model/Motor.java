@@ -16,7 +16,7 @@ public class Motor extends Kendaraan implements WajibSIM {
         public long hitungBiaya(int hari) {
                 long total = getTarifPerHari() * hari;
                 if (hari >= HARI_DISKON) {
-                total -= total / 10;   // diskon 10%
+                total -= total / 10;  
                 }
                 return total;
         }
