@@ -1,6 +1,5 @@
 package App;
 
-// import model.Kendaraan;
 import controller.RentalController;
 import model.Mobil;
 import model.Motor;
@@ -32,8 +31,7 @@ public class Main {
                                 view,
                                 struktView,
                                 kendaraanFactory);
-
-                // Data awal/dummy data
+                
                 controller.tambahDataAwal(new Mobil(
                                 "L 1234 AB",
                                 "Toyota Avanza",
