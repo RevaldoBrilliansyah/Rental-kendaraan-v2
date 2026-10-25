@@ -60,13 +60,9 @@ public class RentalController {
                         return;
                 }
                 String merk = view.bacaTeks("Merk");
-                // [OCP] Daftar jenis diambil dari Factory, bukan ditulis manual di Controller.
                 String jenis = view.bacaTeks("Jenis (" + String.join("/", kendaraanFactory.daftarJenis()) + ")")
                                 .toUpperCase();
-                // if (!List.of(kendaraanFactory.daftarJenis()).contains(jenis)) {
-                // view.tampilPesan("Jenis tidak dikenal.");
-                // return;
-                // }
+                
                 if (!kendaraanFactory.daftarJenis().contains(jenis)) {
                         view.tampilPesan("Jenis tidak dikenal.");
                         return;
@@ -108,16 +104,13 @@ public class RentalController {
                                 return;
                         }
                 }
-                // [LSP] Validasi memakai kontrak kelas induk, BUKAN instanceof MobilPremium.
-                // Berlaku sama untuk semua jenis, termasuk jenis yang dibuat nanti.
+              
                 if (hari < kendaraan.getMinimalHari()) {
                         view.tampilPesan(kendaraan.getMerk() + " minimal disewa "
                                         + kendaraan.getMinimalHari() + " hari.");
                         return;
                 }
-
-                // [OCP] Controller tidak tahu dan tidak perlu tahu jenis kendaraannya.
-                // Polimorfisme memilih hitungBiaya() milik subclass yang tepat.
+                
                 long total = kendaraan.hitungBiaya(hari);
                 Penyewaan sewa = new Penyewaan(penyewaanRepo.buatIdBaru(), nama, kendaraan, hari, total);
                 penyewaanRepo.tambah(sewa);
